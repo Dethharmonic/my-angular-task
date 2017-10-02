@@ -1,0 +1,98 @@
+<p-dataTable [contextMenu]="row" [value]="objs" selectionMode="single" [(selection)]="selectedObj" rows="15" [responsive]="true"
+    [rowStyleClass]="rowBgColor">
+    <p-header>
+        <div class="ui-helper-clearfix" style="width:100%">
+            <button class="my-button" type="button" pButton  style="float:left" (click)="showAddingDialog()" label="Add"></button>
+        </div>
+    </p-header>
+    <p-column field="isp" header="ISP"></p-column>
+    <p-column field="fnn_number" header="FNN NUMBER"></p-column>
+    <p-column field="peak_bandwidth" header="Peak Bandwidth (kbps)"></p-column>
+    <p-column field="network_sio" header="Network SIO (Count)"></p-column>
+    <p-column field="kbps_sio" header="kbps/SIO"></p-column>
+    <p-column field="current_tier" header="Current Tier"></p-column>
+    <p-column field="last_month_tier" header="Last Month Tier"></p-column>
+
+</p-dataTable>
+
+<p-dialog header="Adding Details" [(visible)]="displayAdding" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="obj">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="isp">ISP</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="isp" [(ngModel)]="obj.isp" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="fnn_number">FNN NUMBER</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="fnn_number" [(ngModel)]="obj.fnn_number" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="peak_bandwidth">Peak Bandwidth</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="peak_bandwidth" [(ngModel)]="obj.peak_bandwidth" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="network_sio">Network SIO</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="network_sio" [(ngModel)]="obj.network_sio" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="kbps_sio">kbps/SIO</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="kbps_sio" [(ngModel)]="obj.kbps_sio" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="current_tier">Current Tier</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="current_tier" [(ngModel)]="obj.current_tier" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="last_month_tier">Last Month Tier</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="last_month_tier" [(ngModel)]="obj.last_month_tier" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="hideAddingDialog()()" label="Cancel"></button>
+            <button type="button" pButton icon="fa-check" (click)="add()" label="Add"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="Updating Details" [(visible)]="displayUpdating" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="obj">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="isp">ISP</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="isp" [(ngModel)]="obj.isp" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="fnn_number">FNN NUMBER</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="fnn_number" [(ngModel)]="obj.fnn_number" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="peak_bandwidth">Peak Bandwidth</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="peak_bandwidth" [(ngModel)]="obj.peak_bandwidth" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="network_sio">Network SIO</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="network_sio" [(ngModel)]="obj.network_sio" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="kbps_sio">kbps/SIO</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="kbps_sio" [(ngModel)]="obj.kbps_sio" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="current_tier">Current Tier</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="current_tier" [(ngModel)]="obj.current_tier" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-5"><label for="last_month_tier">Last Month Tier</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="last_month_tier" [(ngModel)]="obj.last_month_tier" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="hideUpdatingDialog()" label="Cancel"></button>
+            <button type="button" pButton icon="fa-check" (click)="update()" label="Update"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
+
+
+<p-contextMenu #row [model]="contextItems" appendTo="body"></p-contextMenu>

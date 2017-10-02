@@ -1,0 +1,5 @@
+<p-menu #menu popup="popup" [model]="items"></p-menu>
+<!--calling toggle method by passing the event from the anchor element -->
+<button class="my-button"  type="button" iconPos="right" pButton icon="fa fa-caret-down " label="Menu" (click)="menu.toggle($event)"></button>
+<!--is used to display messages in an overlay -->
+<p-growl [value]="msgs"></p-growl>

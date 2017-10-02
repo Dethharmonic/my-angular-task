@@ -1,0 +1,72 @@
+
+<div class="ui-g ui-g-nopad">
+    <!--Header and Logotype  -->
+    <div class="ui-g-8">
+        <div class="my-header"><img src="assets/images/telstra.png"> Wholesale Access Interface</div>
+    </div>
+    <!--User bar  -->
+    <div class="ui-g-4">
+        <div class="my-logout-bar">
+            <app-logout-menu>Loading...</app-logout-menu>
+        </div>
+    </div>
+</div>
+
+<div class="my-main-container">
+    <!-- Seporator line -->
+    <div class="my-separator"></div>
+
+    <!-- Button panel -->
+    <div class="ui-g">
+        <div class="ui-g-2 ui-g-nopad">
+            <div class="my-button-bar">
+                <!-- Button "Home" -->
+                <button class="my-button" pButton type="button" label="Home"></button>
+            </div>
+        </div>
+        <div class="ui-g-6 ui-g-nopad">
+        </div>
+        <div class="ui-g-4 ui-g-nopad">
+            <div class="my-button-bar ui-g">
+                <div class="ui-g-6">
+                    <!-- Popup menu -->
+                    <app-popup-menu></app-popup-menu>
+                </div>
+                <div class="ui-g-6">
+                    <!-- Button "Back" -->
+                    <button class="my-button" pButton type="button" label="Back"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g ">
+        <div class="ui-g-12 ui-g-nopad">
+            <!-- Panel title with current date -->
+            <p-panel >
+                    <p-header>
+                            <div >
+                                <span >ISP Nation APHT Report: {{getDate()}}</span>
+                                <!-- Export button-->
+                                <img class="my-export-button" src="assets/images/excel.png" (click)="tableToExcel()">
+                            </div>
+                     </p-header>
+                <!-- Table Tabs  -->
+                <p-tabView (onChange)="setTabsNum($event)">
+                    <p-tabPanel header="NBN Nation APHT (SIO)" [selected]="true" >
+                        <app-datatable [(objs)]="datatable1">Loading...</app-datatable>
+                    </p-tabPanel>
+                    <p-tabPanel header="DSL Nation APHT (SIO)" >
+                        <app-datatable [(objs)]="datatable2">Loading...</app-datatable>
+                    </p-tabPanel>
+                </p-tabView>
+            </p-panel>
+        </div>
+    </div>
+    <div class="ui-g ">
+        <div class="ui-g-12 ui-g-nopad">
+            <!-- Footer  -->
+            <p class="my-footer">© DonRiver,Inc. 2017. All Rights Reserved</p>
+        </div>
+    </div>
+</div>

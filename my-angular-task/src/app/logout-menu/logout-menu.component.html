@@ -1,0 +1,15 @@
+<!-- Displays user name and allows to logout   -->
+<p>Welcome {{userName}} | <a (click)="confirmation()">Logout</a></p>
+
+<!-- Dialog menu for confirming logout  -->
+<p-dialog header="Confirmation" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+        <p>Are you sure you want to logout?</p>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="cancel()" label="No"></button>
+            <button type="button" pButton icon="fa-check" (click)="logout()" label="Yes"></button>
+        </div>
+    </p-footer>
+</p-dialog>

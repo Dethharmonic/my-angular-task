@@ -1,0 +1,14 @@
+.ui-menu {
+    width: 16%;
+    background: #0070C0;
+    padding: 0 !important;
+}
+.ui-menu .ui-menuitem{
+    width: 100%;
+    background: #8DB1E2;
+    text-align: center;
+}
+.ui-menu .ui-menuitem .ui-menuitem-link {
+    color: #ffffff;
+    font-weight: bold;
+}
